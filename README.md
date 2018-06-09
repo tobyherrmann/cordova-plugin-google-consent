@@ -5,8 +5,9 @@ Google consent sdk is used for asking users in the European Economic Area (EEA) 
 
 ## Installation
 
-    // install directly from this repo (do not prefix command with "ionic", for whatever reason ionic can not handle installing plugins directly via URL.)
-    cordova plugin add https://github.com/tobyherrmann/cordova-plugin-google-consent.git
+```cmd
+ionic cordova plugin add cordova-plugin-google-consent
+```
 
 ## Ionic Include
 Include the plugin in your app.module.ts

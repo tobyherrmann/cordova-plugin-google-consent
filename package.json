@@ -1,11 +1,30 @@
 {
   "name": "cordova-plugin-google-consent",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "cordova": {
     "id": "cordova-plugin-google-consent",
     "platforms": [
       "android"
     ]
   },
-  "description": "ionic wrapper for google consent sdk"
+  "description": "ionic wrapper for google consent sdk",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tobyherrmann/cordova-plugin-google-consent.git"
+  },
+  "keywords": [
+    "google",
+    "consent",
+    "sdk",
+    "admob",
+    "ads",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "tobyherrmann",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tobyherrmann/cordova-plugin-google-consent/issues"
+  },
+  "homepage": "https://github.com/tobyherrmann/cordova-plugin-google-consent#readme"
 }

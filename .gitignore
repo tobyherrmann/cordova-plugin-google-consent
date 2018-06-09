@@ -2,3 +2,5 @@
 .idea
 libraries
 src/android/com
+plugman
+plugman.cmd
