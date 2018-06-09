@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-google-consent"
+        version="0.1.0">
+	<name>Plugin for Google Consent SDK</name>
+	<description>Cordova wrapper for Google Consent SDK.</description>
+	<author>tobyherrmann</author>
+	<license>MIT</license>
+	<keywords>google,consent,sdk,admob,ads</keywords>
+	<repo>https://github.com/tobyherrmann/cordova-plugin-google-consent</repo>
+	<issue>https://github.com/tobyherrmann/cordova-plugin-google-consent/issues</issue>
+
+	<!-- android -->
+	<platform name="android">
+		<js-module src="www/plugin.js" name="plugin">
+			<runs />
+			<!-- This is the window variable name you want, like window.MyCordovaPlugin -->
+			<clobbers target="Consent" />
+		</js-module>
+		<config-file parent="/*" target="res/xml/config.xml">
+			<feature name="Consent">
+				<param name="android-package" value="ch.herrmanntech.cordova.consent.Consent" />
+				<param name="onload" value="true" />
+			</feature>
+		</config-file>
+
+		<source-file src="src/android/Consent.java" target-dir="src/ch/herrmanntech/cordova/consent/" />
+
+		<framework src="com.google.android.ads.consent:consent-library:+" />
+
+	</platform>
+
+	<!-- ios -->
+	<!--<platform name="ios">-->
+		<!--<js-module src="www/plugin.js" name="plugin">-->
+			<!--<runs />-->
+			<!--<clobbers target="Consent" />-->
+		<!--</js-module>-->
+		<!--<config-file target="config.xml" parent="/*">-->
+			<!--<feature name="Consent">-->
+				<!--<param name="ios-package" value="Consent" />-->
+				<!--<param name="onload" value="true" />-->
+			<!--</feature>-->
+		<!--</config-file>-->
+
+		<!--<source-file src="src/ios/Consent.swift" />-->
+	<!--</platform>-->
+</plugin>

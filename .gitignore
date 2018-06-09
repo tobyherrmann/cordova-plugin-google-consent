@@ -1,0 +1,4 @@
+*.iml
+.idea
+libraries
+src/android/com

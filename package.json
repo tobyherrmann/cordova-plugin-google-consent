@@ -1,0 +1,11 @@
+{
+  "name": "cordova-plugin-google-consent",
+  "version": "0.1.0",
+  "cordova": {
+    "id": "cordova-plugin-google-consent",
+    "platforms": [
+      "android"
+    ]
+  },
+  "description": "ionic wrapper for google consent sdk"
+}
