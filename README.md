@@ -5,8 +5,8 @@ Google consent sdk is used for asking users in the European Economic Area (EEA) 
 
 ## Installation
 
-    // install directly from this repo
-    cordova plugin add https://github.com/tobyherrmann/cordova-plugin-google-consent
+    // install directly from this repo (do not prefix command with "ionic", for whatever reason ionic can not handle installing plugins directly via URL.)
+    cordova plugin add https://github.com/tobyherrmann/cordova-plugin-google-consent.git
 
 ## Ionic Include
 Include the plugin in your app.module.ts
@@ -63,7 +63,7 @@ verifyConsent(publisherIds :Array<string>, privacyPolicyUrl :string, showProVers
 ```typescript
 interface ConsentResult {
 	consent: "PERSONALIZED" | "NON_PERSONALIZED" | "UNKNOWN" | null; // is UNKNOWN in case of the user has chosen to buy the pro option
-	isAdFree: boolean; // user has chosen the to buy the pro option on the dialog
+	isAdFree: boolean; // user has chosen the "buy the pro version" option on the dialog
 	hasShownDialog: boolean; // if false, user already made a decision earlier and there was no need to show the dialog
 	isNotInEea: boolean; // if true, user is not in EEA and can make no decision. No dialog has been shown to the user if this is the case. Ignore other results if this is the case, you can show personalized ads without asking.
 }
