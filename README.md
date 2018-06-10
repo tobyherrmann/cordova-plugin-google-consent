@@ -73,8 +73,7 @@ interface ConsentResult {
 
 ### Example
 ```typescript
-this.consent.verifyConsent(["pub-123xxxxxxx"], "https://www.mycoolapp.com/privacy",
-			true, false)
+this.consent.verifyConsent(["pub-123xxxxxxx"], "https://www.mycoolapp.com/privacy",	true, false)
 			.then((result) => {
 				console.log(result);
 			})
@@ -85,8 +84,8 @@ this.consent.verifyConsent(["pub-123xxxxxxx"], "https://www.mycoolapp.com/privac
 
 ## consent.changeConsentDecision
 
-Method to change the decision made later. This option should be offered to the user in the settings, that he can change his decision at any time in the settings.
-This method has no check if user is really in the EEA or not, the dialog is shown to every user. User method verifyConsent first to determine if a user is in EEA or not.
+Method to change the decision already made. This option should be offered to the user in the settings, that he can change his decision at any time.
+This method has no check if a user is really in the EEA or not, the dialog is shown to every user. Use method verifyConsent first to determine if a user is in EEA or not.
 
 ### Params
 ```typescript
@@ -110,7 +109,7 @@ interface ConsentResult {
 
 ### Example
 ```typescript
-this.consent.changeConsentDecision( "https://www.mycoolapp.com/privacy",true)
+this.consent.changeConsentDecision("https://www.mycoolapp.com/privacy", true)
 			.then((result) => {
 				console.log(result);
 			})
