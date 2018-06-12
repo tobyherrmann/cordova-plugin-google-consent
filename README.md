@@ -1,6 +1,6 @@
 # cordova-plugin-google-consent
 
-This plugin is an ionic cordova wrapper for the google consent sdk.
+This plugin is an ionic cordova wrapper for the Google Consent SDK.
 Google consent sdk is used for asking users in the European Economic Area (EEA) for permission to display personalized ads.
 
 ## Installation
@@ -34,6 +34,11 @@ export class AppModule { }
 
 ```
 
+## AdMob Settings
+In order to use Google Consent SDK, two points must be fulfilled (see https://developers.google.com/admob/android/eu-consent)
+
+- you cannot use AdMob Mediation
+- you cannot use more than 12 ad technology providers (this one you have to change, default is a set from google with 200 providers or something, see https://apps.admob.com/v2/pubcontrols/eu-user-consent)
 
 ## Supported Platforms
 
@@ -47,7 +52,7 @@ export class AppModule { }
 ## consent.verifyConsent
 
 Should be called (according to Google) on every app start. Checks and returns consent of the user. If the user has not made any consent decision yet, it asks the users for consent.
-If the User is not in the EEA, no dialog is presented to the user. Only users in EEA can make a decision.
+If the user is not located in the EEA, no dialog is presented to the user. Only users in EEA can make a decision.
 
 ### Params
 ```typescript
@@ -71,7 +76,7 @@ interface ConsentResult {
 ```
 
 
-### Example
+### Example (Ionic)
 ```typescript
 this.consent.verifyConsent(["pub-123xxxxxxx"], "https://www.mycoolapp.com/privacy",	true, false)
 			.then((result) => {
@@ -82,9 +87,17 @@ this.consent.verifyConsent(["pub-123xxxxxxx"], "https://www.mycoolapp.com/privac
 			});
 ```
 
+### Example (Cordova)
+```javascript
+window['Consent'].verifyConsent(publisherIds, privacyPolicyUrl, showProVersionOption, isDebug,
+				function(result) {/* do something with the result */},
+				function(error) {/* handle the error case */}
+			);
+```
+
 ## consent.changeConsentDecision
 
-Method to change the decision already made. This option should be offered to the user in the settings, that he can change his decision at any time.
+Method to change the made decision later. This option should be offered to the user in the settings, that he can change his decision at any time.
 This method has no check if a user is really in the EEA or not, the dialog is shown to every user. Use method verifyConsent first to determine if a user is in EEA or not.
 
 ### Params
@@ -107,7 +120,7 @@ interface ConsentResult {
 ```
 
 
-### Example
+### Example (Ionic)
 ```typescript
 this.consent.changeConsentDecision("https://www.mycoolapp.com/privacy", true)
 			.then((result) => {
@@ -116,4 +129,12 @@ this.consent.changeConsentDecision("https://www.mycoolapp.com/privacy", true)
 			.catch((error) => {
 				console.log(error);
 			});
+```
+
+### Example (Cordova)
+```javascript
+window['Consent'].changeConsentDecision(privacyPolicyUrl, showProVersionOption,
+				function(result) {/* do something with the result */},
+				function(error) {/* handle the error case */}
+			);
 ```
