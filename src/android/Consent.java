@@ -50,12 +50,7 @@ public class Consent extends CordovaPlugin {
 		} else if (action.equals("changeConsentDecision")) {
 			final String privacyPolicyUrl = args.getString(0);
 			final boolean showProVersionOption = args.getBoolean(1);
-			this.context.runOnUiThread(new Runnable() {
-				public void run() {
-					askForConsent(callbackContext, privacyPolicyUrl, showProVersionOption);
-				}
-			});
-
+			askForConsent(callbackContext, privacyPolicyUrl, showProVersionOption);
 		}
 
 		return true;
@@ -169,8 +164,10 @@ public class Consent extends CordovaPlugin {
 		if (showProVersionOption) {
 			builder.withAdFreeOption();
 		}
+
 		form = builder.build();
 		form.load();
+
 	}
 
 	private void showConsentForm() {
