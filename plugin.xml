@@ -10,8 +10,9 @@
 	<keywords>google,consent,sdk,admob,ads</keywords>
 	<repo>https://github.com/tobyherrmann/cordova-plugin-google-consent</repo>
 	<issue>https://github.com/tobyherrmann/cordova-plugin-google-consent/issues</issue>
-
-	<!-- android -->
+    <dependency id="cordova-plugin-add-swift-support" version="1.7.2"/>
+	
+    <!-- android -->
 	<platform name="android">
 		<js-module src="www/plugin.js" name="plugin">
 			<runs />
@@ -31,19 +32,25 @@
 
 	</platform>
 
-	<!-- ios -->
-	<!--<platform name="ios">-->
-		<!--<js-module src="www/plugin.js" name="plugin">-->
-			<!--<runs />-->
-			<!--<clobbers target="Consent" />-->
-		<!--</js-module>-->
-		<!--<config-file target="config.xml" parent="/*">-->
-			<!--<feature name="Consent">-->
-				<!--<param name="ios-package" value="Consent" />-->
-				<!--<param name="onload" value="true" />-->
-			<!--</feature>-->
-		<!--</config-file>-->
 
-		<!--<source-file src="src/ios/Consent.swift" />-->
-	<!--</platform>-->
+	<!-- ios -->
+	<platform name="ios">
+		<js-module src="www/plugin.js" name="plugin">
+			<runs />
+			<clobbers target="Consent" />
+		</js-module>
+		<config-file target="config.xml" parent="/*">
+			<feature name="Consent">
+				<param name="ios-package" value="Consent" />
+				<param name="onload" value="true" />
+			</feature>
+		</config-file>
+        <hook type="after_platform_add" src="src/ios/addresource.js" />
+        <hook type="after_plugin_add" src="src/ios/addresource.js" />
+
+ 		<source-file src="src/ios/Consent.swift" />
+		<source-file src="src/ios/Consent-Bridging-Header.h" />
+        <framework src="PersonalizedAdConsent" type="podspec" spec="~> 1.0.3" />
+        <resource-file src="src/ios/PersonalizedAdConsent.bundle" target="PersonalizedAdConsent.bundle" />
+	</platform>
 </plugin>
