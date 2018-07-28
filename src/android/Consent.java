@@ -62,7 +62,7 @@ public class Consent extends CordovaPlugin {
 		return true;
 	}
 
-	private void verifyConsent(final CallbackContext cb, String[] publisherIds, String privacyPolicyUrl, boolean showProVersionOption, boolean isDebug) {
+	private void verifyConsent(final CallbackContext cb, final String[] publisherIds, final String privacyPolicyUrl, final boolean showProVersionOption, final boolean isDebug) {
 		ConsentInformation consentInformation = ConsentInformation.getInstance(context);
 		checkDebug(isDebug, consentInformation);
 
@@ -103,7 +103,7 @@ public class Consent extends CordovaPlugin {
 		});
 	}
 
-	private void checkDebug(boolean isDebug, ConsentInformation consentInformation) {
+	private void checkDebug(final boolean isDebug, final ConsentInformation consentInformation) {
 		if (isDebug) {
 			consentInformation.addTestDevice(getHashedDeviceId());
 			consentInformation.setDebugGeography(DebugGeography.DEBUG_GEOGRAPHY_EEA);
@@ -112,7 +112,7 @@ public class Consent extends CordovaPlugin {
 		}
 	}
 
-	private void askForConsent(final CallbackContext cb, String privacyPolicyUrl, boolean showProVersionOption) {
+	private void askForConsent(final CallbackContext cb, final String privacyPolicyUrl, final boolean showProVersionOption) {
 		URL privacyUrl = null;
 		try {
 			privacyUrl = new URL(privacyPolicyUrl);
