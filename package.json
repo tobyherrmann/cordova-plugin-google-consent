@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-google-consent",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "cordova": {
     "id": "cordova-plugin-google-consent",
     "platforms": [
