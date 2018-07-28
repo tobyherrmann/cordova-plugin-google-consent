@@ -4,3 +4,8 @@ libraries
 src/android/com
 plugman
 plugman.cmd
+npm
+npm.cmd
+npx
+npx.cmd
+node_modules
