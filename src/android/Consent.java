@@ -70,11 +70,26 @@ public class Consent extends CordovaPlugin {
 			@Override
 			public void onConsentInfoUpdated(ConsentStatus consentStatus) {
 
-				if (consentStatus == ConsentStatus.PERSONALIZED) {
+				//First, lets see if we're in the EEA...
+				boolean isInEea = consentInformation.isRequestLocationInEeaOrUnknown();
+
+				if (consentStatus == ConsentStatus.UNKNOWN && !isInEea) {
+					JSONObject resultNotInEea = new JSONObject();
+					try {
+						resultNotInEea.put("consent", "UNKNOWN");
+						resultNotInEea.put("isAdFree", false);
+						resultNotInEea.put("hasShownDialog", false);
+						resultNotInEea.put("isNotInEea", true);
+						cb.success(resultNotInEea);
+					} catch(JSONException ex) {
+						cb.error(ex.getMessage());
+					}
+				} else if (consentStatus == ConsentStatus.PERSONALIZED) {
 					JSONObject resultPersonalized = new JSONObject();
 					try {
 						resultPersonalized.put("consent", "PERSONALIZED");
 						resultPersonalized.put("hasShownDialog", false);
+						resultPersonalized.put("isNotInEea", false);
 						cb.success(resultPersonalized);
 					} catch (JSONException ex) {
 						cb.error(ex.getMessage());
@@ -85,6 +100,7 @@ public class Consent extends CordovaPlugin {
 					try {
 						resultNonPersonalized.put("consent", "NON_PERSONALIZED");
 						resultNonPersonalized.put("hasShownDialog", false);
+						resultNonPersonalized.put("isNotInEea", false);
 						cb.success(resultNonPersonalized);
 					} catch (JSONException ex) {
 						cb.error(ex.getMessage());
@@ -151,6 +167,7 @@ public class Consent extends CordovaPlugin {
 						resultAskConsent.put("consent", consent);
 						resultAskConsent.put("isAdFree", userPrefersAdFree);
 						resultAskConsent.put("hasShownDialog", true);
+						resultAskConsent.put("isNotInEea", false);
 
 						cb.success(resultAskConsent);
 					} catch (JSONException ex) {
