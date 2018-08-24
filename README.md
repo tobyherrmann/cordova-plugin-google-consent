@@ -1,6 +1,6 @@
 # cordova-plugin-google-consent
 
-This plugin is an ionic cordova wrapper for the Google Consent SDK.
+This plugin is an Ionic Cordova wrapper for the Google Consent SDK.
 Google Consent SDK is used for asking users in the European Economic Area (EEA) for permission to display personalized ads.
 
 ## News
