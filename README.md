@@ -3,6 +3,11 @@
 This plugin is an ionic cordova wrapper for the Google Consent SDK.
 Google consent sdk is used for asking users in the European Economic Area (EEA) for permission to display personalized ads.
 
+## News
+
+**Version 0.2.0 / 2018-08-24:**
+Plugin no supports iOS as platform. Many thanks to [einaregilsson](https://github.com/einaregilsson) and [RaudasHugbunadur](https://github.com/RaudasHugbunadur), who created the iOS version of the plugin.
+
 ## Installation
 
 ```cmd

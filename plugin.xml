@@ -2,7 +2,7 @@
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         id="cordova-plugin-google-consent"
-        version="0.1.3">
+        version="0.2.0">
 	<name>Plugin for Google Consent SDK</name>
 	<description>Cordova wrapper for Google Consent SDK.</description>
 	<author>tobyherrmann</author>
