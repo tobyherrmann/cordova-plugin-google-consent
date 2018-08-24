@@ -1,12 +1,11 @@
 *.iml
 .idea
+*.cmd
 libraries
 src/android/com
+ionic
 plugman
-plugman.cmd
 npm
-npm.cmd
 npx
-npx.cmd
 node_modules
 .DS_Store

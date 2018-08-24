@@ -4,7 +4,7 @@ export interface ConsentResult {
 	consent: "PERSONALIZED" | "NON_PERSONALIZED" | "UNKNOWN" | null;
 	isAdFree: boolean;
 	hasShownDialog: boolean;
-	isNotInEea: boolean; // I know it's bad to reverse formulate, but because google is population "is not in EEA" via exception, i want to default the normal case if not submitted to "user is in EEA"
+	isNotInEea: boolean;
 }
 
 let ngZone;
@@ -27,19 +27,7 @@ export class Consent {
 		return new Promise((resolve, reject) =>
 			window['Consent'].verifyConsent(publisherIds, privacyPolicyUrl, showProVersionOption, isDebug,
 				(value: ConsentResult) => ngZone.run(() => resolve(value)),
-				(value: string) => ngZone.run(() => {
-					if (value.indexOf("request is not in EEA or unknown") !== -1) {
-						let result :ConsentResult = {
-							consent: "UNKNOWN",
-							isAdFree: false,
-							hasShownDialog: false,
-							isNotInEea: true
-						};
-						resolve(result);
-					} else {
-						reject(value);
-					}
-				})
+				(value: string) => ngZone.run(() => reject(value))
 			)
 		);
 	}
