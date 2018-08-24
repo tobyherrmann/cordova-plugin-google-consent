@@ -43,6 +43,7 @@ In order to use Google Consent SDK, two points must be fulfilled (see https://de
 ## Supported Platforms
 
 - Android
+- iOS
 
 ## Methods
 
@@ -138,3 +139,9 @@ window['Consent'].changeConsentDecision(privacyPolicyUrl, showProVersionOption,
 				function(error) {/* handle the error case */}
 			);
 ```
+
+## iOS specific issues
+
+When installing the plugin on iOS it will download the Google Consent SDK and install it as a CocoaPod. It will also create a yourprojectname.xcworkspace file. To build 
+your project for iOS you will need to open the .xcworkspace file in XCode and build it there, the command line build does not work correctly with workspaces instead of
+projects.
