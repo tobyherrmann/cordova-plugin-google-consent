@@ -63,7 +63,7 @@ public class Consent extends CordovaPlugin {
 	}
 
 	private void verifyConsent(final CallbackContext cb, final String[] publisherIds, final String privacyPolicyUrl, final boolean showProVersionOption, final boolean isDebug) {
-		ConsentInformation consentInformation = ConsentInformation.getInstance(context);
+		final ConsentInformation consentInformation = ConsentInformation.getInstance(context);
 		checkDebug(isDebug, consentInformation);
 
 		consentInformation.requestConsentInfoUpdate(publisherIds, new ConsentInfoUpdateListener() {
@@ -71,7 +71,7 @@ public class Consent extends CordovaPlugin {
 			public void onConsentInfoUpdated(ConsentStatus consentStatus) {
 
 				//First, lets see if we're in the EEA...
-				boolean isInEea = consentInformation.isRequestLocationInEeaOrUnknown();
+				final boolean isInEea = consentInformation.isRequestLocationInEeaOrUnknown();
 
 				if (consentStatus == ConsentStatus.UNKNOWN && !isInEea) {
 					JSONObject resultNotInEea = new JSONObject();

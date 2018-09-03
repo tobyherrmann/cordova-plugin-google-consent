@@ -57,7 +57,7 @@ In order to use Google Consent SDK, two points must be fulfilled (see https://de
 
 ## consent.verifyConsent
 
-Should be called (according to Google) on every app start. Checks and returns consent of the user. If the user has not made any consent decision yet, it asks the users for consent.
+Should be called (according to Google) on every app start. Checks and returns consent of the user. If the user has not made any consent decision yet, it asks the user for consent.
 If the user is not located in the EEA, no dialog is presented to the user. Only users in EEA can make a decision.
 
 ### Params
