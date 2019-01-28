@@ -1,3 +1,11 @@
+#--------------------------------------------------
+
+# DEPRECATED
+It seems that the Google Consent SDK is not compliant with the law, as it does present consent in English language to non English speaking people.
+Plugin should not be used anymore.
+
+#--------------------------------------------------
+
 # cordova-plugin-google-consent
 
 This plugin is an Ionic Cordova wrapper for the Google Consent SDK.
